@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { countryFlag } from './countriesData.js';
 
 export function Header() {
     return (
@@ -31,24 +32,34 @@ export function Header() {
                         title="EN"
                         menuVariant="dark"
                     >
-                        <NavDropdown.Item>LANG1</NavDropdown.Item>
-                        <NavDropdown.Item>LANG2</NavDropdown.Item>
-                        <NavDropdown.Item>LANG3</NavDropdown.Item>
-                        <NavDropdown.Item>LANG4</NavDropdown.Item>
-                        <NavDropdown.Item>LANG5</NavDropdown.Item>
-                        <NavDropdown.Item>LANG6</NavDropdown.Item>
-                        <NavDropdown.Item>LANG7</NavDropdown.Item>
-                        <NavDropdown.Item>LANG8</NavDropdown.Item>
-                        <NavDropdown.Item>LANG9</NavDropdown.Item>
-                        <NavDropdown.Item>LANG10</NavDropdown.Item>
-                        <NavDropdown.Item>LANG11</NavDropdown.Item>
-                        
+                        {countryFlag.map((country) => (
+                            <Language 
+                                langObj={country}
+                                key={country.name}
+                            />
+                        ))}
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Container>
     </Navbar>
     );
+}
+
+function Language(props) {
+    return (
+        <Container>
+            <NavDropdown.Item>
+                <img 
+                    class="pr-2 img-fluid" 
+                    style={{ marginRight: '5px', width: '20px'}} 
+                    src={props.langObj.flag} 
+                    alt={props.langObj.alt} 
+                />
+                {props.langObj.name} 
+            </NavDropdown.Item>
+        </Container>
+    )
 }
 
 export default Header;

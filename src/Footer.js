@@ -1,4 +1,5 @@
 import './App.css';
+import { countryFlag } from './countriesData.js';
 
 export function Footer() {
     return (
@@ -47,74 +48,30 @@ export function Footer() {
                             <p class="text-white font-weight-bold"> FOREIGN OFFICES </p>
                         </article>
 
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/australia.png" width="30" height="30" alt="australia"/>
-                                <p class="text-white mb-2 footer-links"> Australia </p>
-                            </div>
-                            
-                        </article>
+                        {countryFlag.map((country) => (
+                            <Language 
+                                langObj={country}
+                                key={country.name}
+                            />
+                        ))}
 
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/china.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> China </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/germany.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> Germany </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/japan.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> Japan </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/korea.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> Korea </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/russia.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> Russia </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/taiwan.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> Taiwan </p>
-                            </div>
-                        </article>
-
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/uk.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> UK </p>
-                            </div>
-                        </article>
-                        
-                        <article>
-                            <div class="d-flex align-items-center"> 
-                                <img class="pr-2 img-fluid" src="./flags/USA.png" width="30" height="30" alt="china"/>
-                                <p class="text-white mb-2 footer-links"> USA </p>
-                            </div>
-                        </article>
                     </div>
-
                 </div>
             </div>
         </section>
+    )
+}
+
+function Language(props) {
+    return (
+        <div>
+            <article>
+                <div class="d-flex align-items-center"> 
+                    <img class="pr-2 img-fluid" style={{ marginRight: '5px' }} src={props.langObj.flag} width="30" height="30" alt={props.langObj.alt}/>
+                    <p class="text-white mb-2 footer-links"> {props.langObj.name} </p>
+                </div>    
+            </article>
+        </div>
     )
 }
 
