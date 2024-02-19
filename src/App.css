@@ -47,5 +47,61 @@
 }
 
 .font-weight-bold {
-  font-weight: 700!important;
+  font-weight: 700 !important;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-container {
+  transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+  transform: translateY(-5px); /* Adjust the distance as needed */
+}
+
+.hovered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(
+    236,
+    236,
+    236,
+    0.8
+  ); /* Adjust opacity and color as needed */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visibility */
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.islands-container {
+  position: relative;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease-in-out; /* Fade-in/out transition */
 }
